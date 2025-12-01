@@ -1,0 +1,71 @@
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "ESNext",
+    "lib": [
+      "ES2020",
+      "DOM"
+    ],
+    "moduleResolution": "bundler", // 改为 bundler 或 node16
+    "esModuleInterop": true,
+    "allowSyntheticDefaultImports": true,
+    "strict": true,
+    "skipLibCheck": true,
+    "forceConsistentCasingInFileNames": true,
+    "declaration": true,
+    "declarationMap": true,
+    "sourceMap": true,
+    "baseUrl": ".",
+    "paths": {
+      "@atmospherics-viz/core": [
+        "./packages/core/src"
+      ],
+      "@atmospherics-viz/utils": [
+        "./packages/utils/src"
+      ],
+      "@atmospherics-viz/types": [
+        "./packages/types/src"
+      ],
+      "@atmospherics-viz/adapter": [
+        "./packages/adapter/src"
+      ],
+      "@atmospherics-viz/shared": [
+        "./packages/shared/src"
+      ],
+      "@atmospherics-viz/leaflet-adapter": [
+        "./packages/leaflet-adapter/src"
+      ]
+    }
+  },
+  "include": [
+    "packages/**/src",
+    "packages/**/src/**/*",
+        "types/**/*.d.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "dist",
+    "**/dist/**",
+    "**/node_modules/**"
+  ],
+  "references": [
+    {
+      "path": "./packages/types"
+    },
+    {
+      "path": "./packages/utils"
+    },
+    {
+      "path": "./packages/core"
+    },
+    {
+      "path": "./packages/adapter"
+    },
+    {
+      "path": "./packages/shared"
+    },
+    {
+      "path": "./packages/leaflet-adapter"
+    }
+  ]
+}

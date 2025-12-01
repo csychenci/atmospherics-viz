@@ -1,0 +1,25 @@
+{
+  "name": "@atmospherics-viz/core",
+  "version": "0.0.31",
+  "description": "Core functionality for atmospheric visualization",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rimraf dist",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@atmospherics-viz/types": "workspace:*",
+    "@atmospherics-viz/utils": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
+  },
+  "devDependencies": {}
+}

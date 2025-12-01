@@ -1,0 +1,20 @@
+{
+  "name": "@atmospherics-viz/types",
+  "version": "0.0.31",
+  "description": "Shared TypeScript type definitions for atmospheric-viz",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rimraf dist",
+    "type-check": "tsc --noEmit"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}

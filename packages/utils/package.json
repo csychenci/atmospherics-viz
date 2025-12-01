@@ -1,0 +1,23 @@
+{
+  "name": "@atmospherics-viz/utils",
+  "version": "0.0.31",
+  "description": "Utility functions for atmospheric-viz",
+  "main": "dist/index.js",
+  "module": "dist/index.esm.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "src"
+  ],
+  "scripts": {
+    "build": "rollup -c",
+    "clean": "rimraf dist",
+    "type-check": "tsc --noEmit"
+  },
+  "dependencies": {
+    "@atmospherics-viz/types": "workspace:*"
+  },
+  "publishConfig": {
+    "access": "public"
+  }
+}
