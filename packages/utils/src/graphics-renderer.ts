@@ -46,10 +46,10 @@ let webglTexture: WebGLTexture | undefined = void 0; // WebGL 纹理
 export function extractImageData(imageElement: HTMLImageElement): Uint8ClampedArray {
   let extractedData: Uint8ClampedArray | null = null;
 
-  // WebGL 路径 - 对应源代码第 15162-15176 行
+  // WebGL 路径
   if (webglSupported && webglContext && webglTexture && webglFramebuffer) {
     try {
-      // 激活纹理并绑定 - 完全对应源代码
+      // 激活纹理并绑定
       webglContext.activeTexture(webglContext.TEXTURE0);
       webglContext.bindTexture(webglContext.TEXTURE_2D, webglTexture);
       webglContext.bindFramebuffer(webglContext.FRAMEBUFFER, webglFramebuffer);
@@ -87,7 +87,7 @@ export function extractImageData(imageElement: HTMLImageElement): Uint8ClampedAr
     }
   }
 
-  // Canvas 2D 回退路径 - 对应源代码的回退逻辑
+  // Canvas 2D 回退路径
   if (!extractedData && canvas2DContext) {
     try {
       canvasElement.width = imageElement.width;

@@ -3,7 +3,7 @@ import { TileInfo, TileLoaderInterface } from '@atmospherics-viz/types';
 import { LRUCache } from './lru-cache';
 
 /**
- * 瓦片数据类 - 对应源代码中的 sm 类
+ * 瓦片数据类
  */
 export class DataTile {
   public url: string;
@@ -29,7 +29,6 @@ export class DataTile {
     this.z = tileInfo.z;
 
     // 从 tileInfo 中获取 transform 函数（如果有的话）
-    // 对应源代码的 this.transformR = t.transformR
     this.transformR = tileInfo.transformR;
     this.transformG = tileInfo.transformG;
     this.transformB = tileInfo.transformB;
@@ -46,14 +45,14 @@ export class DataTile {
           this.data = extractImageData(img);
           this.status = 'loaded';
 
-          // 解码头部参数（完全对应源代码的解码逻辑）
+          // 解码头部参数
           const headerData = this.extractHeaderData(this.data);
           // const headerData = [
           //   -24.00303840637207, 7.92490291595459, -16.71394157409668, 26.37898063659668, 0, 0,
           // ];
 
           // headerData 现在是 Float32Array，包含28个float值
-          // 根据源代码逻辑，前6个值用于解码参数
+          // 前6个值用于解码参数
           const minR = headerData[0];
           const maxR = headerData[1];
           const minG = headerData[2];
@@ -65,10 +64,10 @@ export class DataTile {
           const scaleG = (maxG - minG) / 255;
           const scaleB = (maxB - minB) / 255;
 
-          // 对应源代码的 this.headerPars = [i, r, o, a, l, s]
+          // this.headerPars = [i, r, o, a, l, s]
           this.headerPars = [scaleR, minR, scaleG, minG, scaleB, minB];
 
-          // 对应源代码的条件decode逻辑
+          // 条件decode逻辑
           this.decodeR = this.transformR
             ? (value: number) => this.transformR!(value * scaleR + minR)
             : (value: number) => value * scaleR + minR;
@@ -110,17 +109,17 @@ export class DataTile {
   }
 
   private extractHeaderData(data: Uint8ClampedArray): Float32Array {
-    // 创建28字节的ArrayBuffer，对应源代码的 new ArrayBuffer(28)
+    // 创建28字节的ArrayBuffer
     const buffer = new ArrayBuffer(28);
-    const uint8View = new Uint8Array(buffer); // 对应源代码的 s
-    const float32View = new Float32Array(buffer); // 对应源代码的 l
+    const uint8View = new Uint8Array(buffer);
+    const float32View = new Float32Array(buffer);
 
     // 起始偏移：4 * 257 * 4 + 8
     let offset = 4 * 257 * 4 + 8;
 
-    // 循环28次，对应源代码的 for (a = 0; a < 28; a++)
+    // 循环28次
     for (let i = 0; i < 28; i++) {
-      // 读取RGB通道，对应源代码的 n = e[c], r = e[c + 1], i = e[c + 2]
+      // 读取RGB通道
       let r = data[offset];
       let g = data[offset + 1];
       let b = data[offset + 2];
@@ -133,13 +132,13 @@ export class DataTile {
       // 打包数据
       uint8View[i] = (r << 6) + (g << 2) + b;
 
-      // 偏移增加16，对应源代码的 c += 16
+      // 偏移增加16
       offset += 16;
     }
 
     console.log('float32View', float32View);
 
-    // 返回Float32Array视图，对应源代码的 return l
+    // 返回Float32Array视图
     return float32View;
   }
 }
