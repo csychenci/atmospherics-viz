@@ -114,4 +114,14 @@ export const DEFAULT_WEATHER_LAYERS = {
   })({
     ident: 'waves',
   }),
+  currents: new WeatherLayer({
+    ident: 'currents',
+    filename: 'seacurrents',
+    renderParams: {
+      renderFrom: 'RG',
+      sea: !0,
+    },
+    colors: DEFAULT_COLORS.currents,
+    m: DEFAULT_COLORS.currents,
+  }),
 } as const;
