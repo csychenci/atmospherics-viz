@@ -1,6 +1,6 @@
 {
   "name": "@atmospherics-viz/shared",
-  "version": "0.0.31",
+  "version": "0.0.35",
   "description": "Shared utilities and components for atmospheric-viz",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

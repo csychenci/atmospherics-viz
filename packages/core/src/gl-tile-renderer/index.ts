@@ -345,7 +345,7 @@ export class GLTileRenderer {
         gradientBytes = new Uint8Array(gradientBytes.buffer, 0, requiredByteLen);
         const texture = this.glo?.createTexture2D(
           WebGLRenderingContext.LINEAR, // minFilter
-          WebGLRenderingContext.LINEAR, // magFilter
+          WebGLRenderingContext.LINEAR, // maxFilter
           WebGLRenderingContext.CLAMP_TO_EDGE, // wrap
           gradientBytes, // 像素数据
           texWidth, // 宽度（像素）

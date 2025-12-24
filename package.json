@@ -1,6 +1,6 @@
 {
   "name": "atmospherics-viz",
-  "version": "0.0.31",
+  "version": "0.0.35",
   "private": true,
   "description": "Atmospheric visualization monorepo",
   "scripts": {

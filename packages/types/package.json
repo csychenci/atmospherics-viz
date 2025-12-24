@@ -1,6 +1,6 @@
 {
   "name": "@atmospherics-viz/types",
-  "version": "0.0.31",
+  "version": "0.0.35",
   "description": "Shared TypeScript type definitions for atmospheric-viz",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

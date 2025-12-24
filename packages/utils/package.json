@@ -1,6 +1,6 @@
 {
   "name": "@atmospherics-viz/utils",
-  "version": "0.0.31",
+  "version": "0.0.35",
   "description": "Utility functions for atmospheric-viz",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",

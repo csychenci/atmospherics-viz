@@ -1,6 +1,6 @@
 {
   "name": "@atmospherics-viz/adapter",
-  "version": "0.0.31",
+  "version": "0.0.35",
   "description": "Adapter layer for atmospheric visualization",
   "main": "dist/index.js",
   "module": "dist/index.esm.js",
